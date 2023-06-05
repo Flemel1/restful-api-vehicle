@@ -14,6 +14,7 @@ Import file `Vehicle Spring Boot.postman_collection.json` di aplikasi postman
 
 ## Jalankan Projek
 Jalankan projek pada code editor seperti visual studio code
+URL `http://localhost:8080/api/vehicle-brand`
 
 ### Catatan
 1. database.sql merupakan database dari projek (Optional jika perlu diimport)
