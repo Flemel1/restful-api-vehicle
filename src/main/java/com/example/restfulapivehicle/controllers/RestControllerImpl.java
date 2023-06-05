@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface RestControllerImpl {
     @GetMapping
-    public ResponseEntity<Object> index(@RequestParam(defaultValue = "0") int page);
+    public ResponseEntity<Object> index(@RequestParam(defaultValue = "1") int page);
 }

@@ -41,18 +41,18 @@ public class PricelistController {
 
     @GetMapping()
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Object> fetchAll(@RequestParam(defaultValue = "0") int page) {
+    public ResponseEntity<Object> fetchAll(@RequestParam(defaultValue = "1") int page) {
         Map<String, Object> data = new HashMap<>();
         try {
             List<Pricelist> prices = new ArrayList<>();
-            PageRequest paging = PageRequest.of(page, 10);
+            PageRequest paging = PageRequest.of(page - 1, 5);
             Page<Pricelist> pageResult = repository.findAll(paging);
             prices = pageResult.getContent();
             data.put("status_code", 200);
             data.put("data", prices);
             data.put("total", pageResult.getTotalElements());
             data.put("limit", pageResult.getSize());
-            data.put("skip", pageResult.getNumber());
+            data.put("skip", pageResult.getPageable().getOffset());
             return new ResponseEntity<Object>(data, HttpStatus.OK);
         } catch (Exception e) {
             data.put("status_code", 500);
