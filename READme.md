@@ -1,4 +1,8 @@
 # Setup Projek RESTful API Spring Boot
+# Overview
+* Spring Boot 3
+* Java 17
+* MySQL
 
 ## Buat Database MySQL
 Buat database dengan nama "vehicle"
